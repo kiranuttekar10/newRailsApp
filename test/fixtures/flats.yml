@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area: MyString
+  floor: MyString
+  flat_cost: MyString
+  MSEB_charges: MyString
+  other_charges: MyString
+  water_charges: MyString
+  parking_charges: MyString
+  maintainance_charges: MyString
+  govt_charges: MyString
+  site_id: 1
+
+two:
+  area: MyString
+  floor: MyString
+  flat_cost: MyString
+  MSEB_charges: MyString
+  other_charges: MyString
+  water_charges: MyString
+  parking_charges: MyString
+  maintainance_charges: MyString
+  govt_charges: MyString
+  site_id: 1

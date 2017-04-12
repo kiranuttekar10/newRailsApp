@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  flat_count: 1
+  site_type: MyString
+  unit_number: MyString
+  area: MyString
+
+two:
+  name: MyString
+  address: MyText
+  flat_count: 1
+  site_type: MyString
+  unit_number: MyString
+  area: MyString
