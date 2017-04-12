@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :flats
   resources :sites
   devise_for :users
   root 'simple#index'

@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412062247) do
+ActiveRecord::Schema.define(version: 20170412103720) do
+
+  create_table "flats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "area"
+    t.string   "floor"
+    t.string   "flat_cost"
+    t.string   "MSEB_charges"
+    t.string   "other_charges"
+    t.string   "water_charges"
+    t.string   "parking_charges"
+    t.string   "maintainance_charges"
+    t.string   "govt_charges"
+    t.integer  "site_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
