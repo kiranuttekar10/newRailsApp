@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:flat_number) %></th>
       <th><%= model_class.human_attribute_name(:area) %></th>
       <th><%= model_class.human_attribute_name(:floor) %></th>
       <th><%= model_class.human_attribute_name(:flat_cost) %></th>
@@ -16,14 +16,13 @@
       <th><%= model_class.human_attribute_name(:maintainance_charges) %></th>
       <th><%= model_class.human_attribute_name(:govt_charges) %></th>
       <th><%= model_class.human_attribute_name(:site_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @flats.each do |flat| %>
       <tr>
-        <td><%= link_to flat.id, flat_path(flat) %></td>
+        <td><%= link_to flat.flat_number, flat_path(flat) %></td>
         <td><%= flat.area %></td>
         <td><%= flat.floor %></td>
         <td><%= flat.flat_cost %></td>
@@ -34,7 +33,6 @@
         <td><%= flat.maintainance_charges %></td>
         <td><%= flat.govt_charges %></td>
         <td><%= flat.site_id %></td>
-        <td><%=l flat.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       flat_path(flat), :class => 'btn btn-default btn-xs' %>

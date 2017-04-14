@@ -16,6 +16,13 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label :flat_number, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :flat_number, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:flat_number) %>
+  </div>
+  <div class="form-group">
     <%= f.label :area, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :area, :class => 'form-control' %>
@@ -78,19 +85,13 @@
     </div>
     <%=f.error_span(:govt_charges) %>
   </div>
-  <div class="form-group">
-    <%= f.label :site_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :site_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:site_id) %>
-  </div>
+      <%= f.hidden_field :site_id, :class => 'form-control', :value => params[:site_id], :readonly => true %>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                flats_path, :class => 'btn btn-default' %>
+                site_path(params[:site_id]), :class => 'btn btn-default' %>
     </div>
   </div>
 

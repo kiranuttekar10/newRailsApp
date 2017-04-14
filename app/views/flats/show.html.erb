@@ -4,6 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:flat_number) %>:</strong></dt>
+  <dd><%= @flat.flat_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:area) %>:</strong></dt>
   <dd><%= @flat.area %></dd>
   <dt><strong><%= model_class.human_attribute_name(:floor) %>:</strong></dt>
@@ -23,13 +25,13 @@
   <dt><strong><%= model_class.human_attribute_name(:govt_charges) %>:</strong></dt>
   <dd><%= @flat.govt_charges %></dd>
   <dt><strong><%= model_class.human_attribute_name(:site_id) %>:</strong></dt>
-  <dd><%= @flat.site_id %></dd>
+  <dd><%= Site.find(@flat.site_id).name %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              flats_path, :class => 'btn btn-default'  %>
+              site_path(@flat.site_id), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_flat_path(@flat), :class => 'btn btn-default' %>
+              {controller: 'flats', action: 'edit', :site_id => @flat.site_id}, :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               flat_path(@flat),
               :method => 'delete',
