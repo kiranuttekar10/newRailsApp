@@ -38,55 +38,48 @@
   </head>
   <body>
 
-    <div class="navbar navbar-inverse navbar-static-top">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Swaraj Construction</a>
-      <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <% if user_signed_in? %>
-          <ul class="nav navbar-nav pull-right">
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Swaraj Construction', root_path, class: 'navbar-brand' %>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <% if user_signed_in? %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to sites_path  do %>
+                  Sites
+              <% end %>
+            </li>
+            <li><%= link_to ""  do %>
+                  Customers
+              <% end %>
+            </li>
+            <li><%= link_to flats_path  do %>
+                  Flats
+              <% end %>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           </ul>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 
-
-    <div class="row">
-      <% if user_signed_in? %>
-        <div class="col-lg-2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-pills nav-stacked">
-              <li><%= link_to sites_path  do %>
-                    Sites <span class="glyphicon glyphicon-home pull-right" aria-hidden="true"></span>
-                <% end %>
-              </li>
-              <li><%= link_to ""  do %>
-                    Customers <span class="glyphicon glyphicon-user pull-right" aria-hidden="true"></span>
-                <% end %>
-              </li>
-              <li><%= link_to flats_path  do %>
-                    Flats <span class="fa fa-shopping-cart pull-right" aria-hidden="true"></span>
-                <% end %>
-              </li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      <% end %>
-      <div class="col-lg-9">
-        <%= bootstrap_flash %>
-        <%= yield %>
-      </div>
-    </div><!--/row-->
-
+    <div class="container">
+    <%= bootstrap_flash %>
+    <%= yield %>
+   </div>
 
 
     <footer>
       <p>&copy; Linker-IT Solutions 2017</p>
     </footer>
-
   </body>
 </html>

@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
+gem 'bootstrap-material-design'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

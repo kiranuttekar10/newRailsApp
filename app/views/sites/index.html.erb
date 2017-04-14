@@ -1,28 +1,33 @@
 <%- model_class = Site -%>
 <div class="page-header">
-  <h3><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+  <h3><%= 'All Sites'.upcase %>
     <span class="pull-right">
       <%= link_to 'Add Site',
                   new_site_path,
-                  :class => 'btn btn-primary' %>
+                  :class => 'btn btn-primary btn-sm' %>
     </span>
   </h3>
 </div>
 
+<div class="row col-md-offset-1">
 <% @sites.each do |site| %>
-  <div class="card col-md-6 card-primary text-center" style="width: 20rem; margin: 2px; height: 25rem;">
+  <div class="card col-md-3 col-sm-5 text-center" style="margin: 0.5rem">
     <div class="card-block">
-      <h4 class="card-title"><%= site.name %></h4>
+      <h4 class="card-title"><strong><%= site.name %></strong></h4>
+      <hr />
       <p class="card-text">
         <strong>Addres: </strong> <%= site.address %> <br />
         <strong>Total Flats: </strong> <%= site.flat_count %> <br />
         <strong>Unit: </strong> <%= site.unit_number %> <br />
         <strong>Area: </strong> <%= site.area %>
       </p>
-      <%= link_to 'Visit', site_path(site), class: 'btn btn-primary btn-xs' %>
+      <hr />
+      <%= link_to 'Visit', site_path(site), class: 'btn btn-warning btn-sm' %>
     </div>
+    <hr />
     <div class="card-footer text-muted">
-      Booked Flats 5
+      Booked Flats <span class="badge"><%= site.flat_count %></span>
     </div>
   </div>
 <% end %>
+</div>
