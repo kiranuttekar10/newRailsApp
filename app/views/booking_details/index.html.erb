@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Booking Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer name</th>
+      <th>Customer address</th>
+      <th>Customer contact</th>
+      <th>Customer pan</th>
+      <th>Customer adhar</th>
+      <th>Site</th>
+      <th>Flat</th>
+      <th>Booking charges</th>
+      <th>Vat</th>
+      <th>Service tax</th>
+      <th>Loan possible</th>
+      <th>Agreement cost</th>
+      <th>Registration fees</th>
+      <th>Final sale deed fees</th>
+      <th>Stamp duty</th>
+      <th>Other charges</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @booking_details.each do |booking_detail| %>
+      <tr>
+        <td><%= booking_detail.customer_name %></td>
+        <td><%= booking_detail.customer_address %></td>
+        <td><%= booking_detail.customer_contact %></td>
+        <td><%= booking_detail.customer_pan %></td>
+        <td><%= booking_detail.customer_adhar %></td>
+        <td><%= booking_detail.site_id %></td>
+        <td><%= booking_detail.flat_id %></td>
+        <td><%= booking_detail.booking_charges %></td>
+        <td><%= booking_detail.vat %></td>
+        <td><%= booking_detail.service_tax %></td>
+        <td><%= booking_detail.loan_possible %></td>
+        <td><%= booking_detail.agreement_cost %></td>
+        <td><%= booking_detail.registration_fees %></td>
+        <td><%= booking_detail.final_sale_deed_fees %></td>
+        <td><%= booking_detail.stamp_duty %></td>
+        <td><%= booking_detail.other_charges %></td>
+        <td><%= link_to 'Show', booking_detail %></td>
+        <td><%= link_to 'Edit', edit_booking_detail_path(booking_detail) %></td>
+        <td><%= link_to 'Destroy', booking_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking Detail', new_booking_detail_path %>

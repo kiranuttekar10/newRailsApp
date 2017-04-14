@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  customer_address: MyString
+  customer_contact: MyString
+  customer_pan: MyString
+  customer_adhar: MyString
+  site_id: 1
+  flat_id: 1
+  booking_charges: MyString
+  vat: MyString
+  service_tax: MyString
+  loan_possible: false
+  agreement_cost: MyString
+  registration_fees: MyString
+  final_sale_deed_fees: MyString
+  stamp_duty: MyString
+  other_charges: MyString
+
+two:
+  customer_name: MyString
+  customer_address: MyString
+  customer_contact: MyString
+  customer_pan: MyString
+  customer_adhar: MyString
+  site_id: 1
+  flat_id: 1
+  booking_charges: MyString
+  vat: MyString
+  service_tax: MyString
+  loan_possible: false
+  agreement_cost: MyString
+  registration_fees: MyString
+  final_sale_deed_fees: MyString
+  stamp_duty: MyString
+  other_charges: MyString

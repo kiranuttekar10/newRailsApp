@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer name:</strong>
+  <%= @booking_detail.customer_name %>
+</p>
+
+<p>
+  <strong>Customer address:</strong>
+  <%= @booking_detail.customer_address %>
+</p>
+
+<p>
+  <strong>Customer contact:</strong>
+  <%= @booking_detail.customer_contact %>
+</p>
+
+<p>
+  <strong>Customer pan:</strong>
+  <%= @booking_detail.customer_pan %>
+</p>
+
+<p>
+  <strong>Customer adhar:</strong>
+  <%= @booking_detail.customer_adhar %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @booking_detail.site_id %>
+</p>
+
+<p>
+  <strong>Flat:</strong>
+  <%= @booking_detail.flat_id %>
+</p>
+
+<p>
+  <strong>Booking charges:</strong>
+  <%= @booking_detail.booking_charges %>
+</p>
+
+<p>
+  <strong>Vat:</strong>
+  <%= @booking_detail.vat %>
+</p>
+
+<p>
+  <strong>Service tax:</strong>
+  <%= @booking_detail.service_tax %>
+</p>
+
+<p>
+  <strong>Loan possible:</strong>
+  <%= @booking_detail.loan_possible %>
+</p>
+
+<p>
+  <strong>Agreement cost:</strong>
+  <%= @booking_detail.agreement_cost %>
+</p>
+
+<p>
+  <strong>Registration fees:</strong>
+  <%= @booking_detail.registration_fees %>
+</p>
+
+<p>
+  <strong>Final sale deed fees:</strong>
+  <%= @booking_detail.final_sale_deed_fees %>
+</p>
+
+<p>
+  <strong>Stamp duty:</strong>
+  <%= @booking_detail.stamp_duty %>
+</p>
+
+<p>
+  <strong>Other charges:</strong>
+  <%= @booking_detail.other_charges %>
+</p>
+
+<%= link_to 'Edit', edit_booking_detail_path(@booking_detail) %> |
+<%= link_to 'Back', booking_details_path %>

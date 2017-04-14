@@ -1,0 +1,97 @@
+<%= form_for(booking_detail) do |f| %>
+  <% if booking_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking_detail.errors.count, "error") %> prohibited this booking_detail from being saved:</h2>
+
+      <ul>
+      <% booking_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_name %>
+    <%= f.text_field :customer_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_address %>
+    <%= f.text_field :customer_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_contact %>
+    <%= f.text_field :customer_contact %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_pan %>
+    <%= f.text_field :customer_pan %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_adhar %>
+    <%= f.text_field :customer_adhar %>
+  </div>
+
+  <div class="field">
+    <%= f.label :site_id %>
+    <%= f.number_field :site_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :flat_id %>
+    <%= f.number_field :flat_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :booking_charges %>
+    <%= f.text_field :booking_charges %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vat %>
+    <%= f.text_field :vat %>
+  </div>
+
+  <div class="field">
+    <%= f.label :service_tax %>
+    <%= f.text_field :service_tax %>
+  </div>
+
+  <div class="field">
+    <%= f.label :loan_possible %>
+    <%= f.check_box :loan_possible %>
+  </div>
+
+  <div class="field">
+    <%= f.label :agreement_cost %>
+    <%= f.text_field :agreement_cost %>
+  </div>
+
+  <div class="field">
+    <%= f.label :registration_fees %>
+    <%= f.text_field :registration_fees %>
+  </div>
+
+  <div class="field">
+    <%= f.label :final_sale_deed_fees %>
+    <%= f.text_field :final_sale_deed_fees %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stamp_duty %>
+    <%= f.text_field :stamp_duty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_charges %>
+    <%= f.text_field :other_charges %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
