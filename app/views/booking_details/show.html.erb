@@ -1,49 +1,211 @@
 <%- model_class = BookingDetail -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+
+</div>
+<div class="page-header">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-md-2">
+        <%= link_to booking_details_path do %>
+            <i class="glyphicon glyphicon-arrow-left btn btn-warning"></i>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <h4><strong><%= 'Booking Details'.upcase %></strong></h4>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-4 col-sm-4 col-xs-4">
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4">
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_booking_detail_path(@booking_detail), :class => 'btn btn-default' %>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-4">
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    booking_detail_path(@booking_detail),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:customer_name) %>:</strong></dt>
-  <dd><%= @booking_detail.customer_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_address) %>:</strong></dt>
-  <dd><%= @booking_detail.customer_address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_contact) %>:</strong></dt>
-  <dd><%= @booking_detail.customer_contact %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_pan) %>:</strong></dt>
-  <dd><%= @booking_detail.customer_pan %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customer_adhar) %>:</strong></dt>
-  <dd><%= @booking_detail.customer_adhar %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:site_id) %>:</strong></dt>
-  <dd><%= @booking_detail.site.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:flat_id) %>:</strong></dt>
-  <dd><%= @booking_detail.flat.flat_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:booking_charges) %>:</strong></dt>
-  <dd><%= @booking_detail.booking_charges %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:vat) %>:</strong></dt>
-  <dd><%= @booking_detail.vat %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:service_tax) %>:</strong></dt>
-  <dd><%= @booking_detail.service_tax %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:loan_possible) %>:</strong></dt>
-  <dd><%= @booking_detail.loan_possible %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:agreement_cost) %>:</strong></dt>
-  <dd><%= @booking_detail.agreement_cost %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:registration_fees) %>:</strong></dt>
-  <dd><%= @booking_detail.registration_fees %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:final_sale_deed_fees) %>:</strong></dt>
-  <dd><%= @booking_detail.final_sale_deed_fees %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:stamp_duty) %>:</strong></dt>
-  <dd><%= @booking_detail.stamp_duty %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:other_charges) %>:</strong></dt>
-  <dd><%= @booking_detail.other_charges %></dd>
-</dl>
+<div class="row">
+  <h4 class="text-center">Customer Details</h4>
+  <hr/>
+  <div class="col-md-3 ">
+    <strong>CUSTOMER NAME:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.customer_name %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>CUSTOMER ADDRESS:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.customer_address %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>CUSTOMER CONTACT:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.customer_contact %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>CUSTOMER PAN:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.customer_pan %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>CUSTOMER ADHAR:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.customer_adhar %>
+  </div>
+</div>
+<div class="row">
+  <hr/>
+  <h4 class="text-center">Site Details</h4>
+  <hr/>
+  <div class="col-md-3 ">
+    <strong>SITE (BUILDING) NAME:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.site.name.upcase %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>UNIT NO:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.site.unit_number %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>AREA :</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.site.area %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>FLOOR :</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.flat.floor %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>TYPE OF UNIT :</strong>
+  </div>
+  <div class="col-md-3 ">
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              booking_details_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_booking_detail_path(@booking_detail), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              booking_detail_path(@booking_detail),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>FLAT NUMBER:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <%= @booking_detail.flat.flat_number %>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <h4 class="text-center">Cost Details</h4>
+  <hr/>
+  <div class="col-md-3 ">
+    <strong>FLAT COST:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.flat_cost %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>MSEB CHARGES:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.MSEB_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>WATER CHARGES :</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.water_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>BOOKING CHARGES :</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.booking_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>VAT :</strong>
+  </div>
+  <div class="col-md-3 ">
+     <%= @booking_detail.vat %> %
+  </div>
+  <div class="col-md-3 ">
+    <strong>SERVICE TAX:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.service_tax %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>ALLOTTED PARKING CHARGES:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.parking_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>MAINTENANCE CHARGES:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.maintainance_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>LOAN POSSIBLE:</strong>
+  </div>
+  <div class="col-md-3 ">
+    <% if @booking_detail.loan_possible %>
+      <%= 'yes'.upcase %>
+    <% else %>
+      <%= 'no'.upcase %>
+    <% end %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>ACTUAL AGREEMENT COST:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.agreement_cost %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>GOVERNMENT CONSIDERATION:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.flat.govt_charges %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>STAMP DUTY:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.stamp_duty %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>REGISTRATION FEES:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.registration_fees %>
+  </div>
+  <div class="col-md-3 ">
+    <strong>FINAL SALE DEED FEES:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.final_sale_deed_fees %>
+  </div>
+</div>
+<hr/>
+<div class="col-lg-6 pull-right">
+  <div class="col-md-3 ">
+    <strong>Total Amount:</strong>
+  </div>
+  <div class="col-md-3 ">
+    &#8377; <%= @booking_detail.final_sale_deed_fees %>
+  </div>
+</div>

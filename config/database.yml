@@ -10,11 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   pool: 5
   username: root
-  password:
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -47,9 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-    adapter: postgresql
-    encoding: unicode
+    <<: *default
     database: newRailsApp_production
-    pool: 5
-    username: root
-    password:
