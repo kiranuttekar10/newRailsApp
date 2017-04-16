@@ -28,6 +28,8 @@ class BookingDetailsController < ApplicationController
 
     respond_to do |format|
       if @booking_detail.save
+        @flat = Flat.find(@booking_detail.flat_id)
+        @flat.update(:booking_status=> 1, :booking_date=> Time.current)
         format.html { redirect_to @booking_detail, notice: 'Booking detail was successfully created.' }
         format.json { render :show, status: :created, location: @booking_detail }
       else
@@ -55,6 +57,8 @@ class BookingDetailsController < ApplicationController
   # DELETE /booking_details/1.json
   def destroy
     @booking_detail.destroy
+    @flat = Flat.find(@booking_detail.flat_id)
+    @flat.update(:booking_status=> 0, :booking_date=> nil)
     respond_to do |format|
       format.html { redirect_to booking_details_url, notice: 'Booking detail was successfully destroyed.' }
       format.json { head :no_content }

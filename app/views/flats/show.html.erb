@@ -29,6 +29,18 @@
                     :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                     :class => 'btn btn-danger btn-sm' %>
       </div>
+      <% if @flat.booking_status == 1 || @flat.booking_status %>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+          <h4><span class="label label-primary">Flat Booked</span></h4>
+        </div>
+      <% else %>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+            <%= link_to 'Book Flat',
+                        {controller: 'booking_details', action: 'new', :flat_id=> @flat,
+                         :site_id=> @flat.site_id},
+                        :class => 'btn btn-primary btn-sm' %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

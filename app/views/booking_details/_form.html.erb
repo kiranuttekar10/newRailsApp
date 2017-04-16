@@ -1,97 +1,135 @@
-<%= form_for(booking_detail) do |f| %>
-  <% if booking_detail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(booking_detail.errors.count, "error") %> prohibited this booking_detail from being saved:</h2>
+<% flat_id = params[:flat_id]
+   site_id = params[:site_id]
+%>
+<%= form_for @booking_detail, :html => { :class => "form-horizontal booking_detail" } do |f| %>
 
-      <ul>
-      <% booking_detail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @booking_detail.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@booking_detail.errors.count, "error") %> prohibited this booking_detail from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @booking_detail.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :customer_name %>
-    <%= f.text_field :customer_name %>
+  <h4>Customer Details</h4>
+  <hr />
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :customer_name, :class => 'form-control', placeholder: :customer_name %>
+      </div>
+      <%=f.error_span(:customer_name) %>
+      <div class="col-lg-6">
+        <%= f.text_field :customer_address, :class => 'form-control', placeholder: :customer_address %>
+      </div>
+      <%=f.error_span(:customer_address) %>
+   </div>
+
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :customer_contact, :class => 'form-control', placeholder: :customer_contact %>
+      </div>
+      <%=f.error_span(:customer_contact) %>
+      <div class="col-lg-6">
+        <%= f.text_field :customer_pan, :class => 'form-control', placeholder: :customer_pan %>
+      </div>
+      <%=f.error_span(:customer_pan) %>
+   </div>
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :customer_adhar, :class => 'form-control', placeholder: :customer_adhar %>
+      </div>
+      <%=f.error_span(:customer_adhar) %>
+   </div>
+
+   <h4>Site & Flat info</h4>
+   <hr/>
+
+   <div class="row custom-row">
+     <div class="col-lg-6">
+       <%= f.label "Site Name : #{Site.find(site_id).name}",
+                   :class => 'control-label col-lg-6' %>
+       <%= f.hidden_field :site_id,
+                        :value=> site_id %>
+     </div>
+     <%=f.error_span(:site_id) %>
+      <div class="col-lg-6">
+        <%= f.label "Flat Number : #{Flat.find(flat_id).flat_number}",
+                    :class => 'control-label col-lg-6' %>
+        <%= f.hidden_field :flat_id,
+                           :value=> flat_id %>
+      </div>
+      <%=f.error_span(:flat_id) %>
+   </div>
+
+   <h4>Booking Details</h4>
+   <hr/>
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :booking_charges, :class => 'form-control', placeholder: :booking_charges %>
+      </div>
+      <%=f.error_span(:booking_charges) %>
+      <div class="col-lg-6">
+        <%= f.text_field :vat, :class => 'form-control', placeholder: :vat %>
+      </div>
+      <%=f.error_span(:vat) %>
+   </div>
+
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :service_tax, :class => 'form-control', placeholder: :service_tax %>
+      </div>
+      <%=f.error_span(:service_tax) %>
+      <div class="col-lg-6">
+        <%= f.select(:loan_possible, options_for_select([['Loan Possible'],['Yes',1],['No',0]],
+                                                        :disabled=> 'Loan Possible', :selected=> 0),
+                     {}, class: 'form-control') %>
+      </div>
+      <%=f.error_span(:loan_possible) %>
+   </div>
+
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :agreement_cost, :class => 'form-control', placeholder: :agreement_cost %>
+      </div>
+      <%=f.error_span(:agreement_cost) %>
+      <div class="col-lg-6">
+        <%= f.text_field :registration_fees, :class => 'form-control', placeholder: :registration_fees %>
+      </div>
+      <%=f.error_span(:registration_fees) %>
+   </div>
+
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :final_sale_deed_fees, :class => 'form-control', placeholder: :final_sale_deed_fees %>
+      </div>
+      <%=f.error_span(:final_sale_deed_fees) %>
+      <div class="col-lg-6">
+        <%= f.text_field :stamp_duty, :class => 'form-control', placeholder: :stamp_duty %>
+      </div>
+      <%=f.error_span(:stamp_duty) %>
+   </div>
+
+   <div class="row custom-row">
+      <div class="col-lg-6">
+        <%= f.text_field :other_charges, :class => 'form-control', placeholder: :other_charges %>
+      </div>
+       <%=f.error_span(:other_charges) %>
+   </div>
+
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                flat_path(params[:flat_id]), :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :customer_address %>
-    <%= f.text_field :customer_address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :customer_contact %>
-    <%= f.text_field :customer_contact %>
-  </div>
-
-  <div class="field">
-    <%= f.label :customer_pan %>
-    <%= f.text_field :customer_pan %>
-  </div>
-
-  <div class="field">
-    <%= f.label :customer_adhar %>
-    <%= f.text_field :customer_adhar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :site_id %>
-    <%= f.number_field :site_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :flat_id %>
-    <%= f.number_field :flat_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :booking_charges %>
-    <%= f.text_field :booking_charges %>
-  </div>
-
-  <div class="field">
-    <%= f.label :vat %>
-    <%= f.text_field :vat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :service_tax %>
-    <%= f.text_field :service_tax %>
-  </div>
-
-  <div class="field">
-    <%= f.label :loan_possible %>
-    <%= f.check_box :loan_possible %>
-  </div>
-
-  <div class="field">
-    <%= f.label :agreement_cost %>
-    <%= f.text_field :agreement_cost %>
-  </div>
-
-  <div class="field">
-    <%= f.label :registration_fees %>
-    <%= f.text_field :registration_fees %>
-  </div>
-
-  <div class="field">
-    <%= f.label :final_sale_deed_fees %>
-    <%= f.text_field :final_sale_deed_fees %>
-  </div>
-
-  <div class="field">
-    <%= f.label :stamp_duty %>
-    <%= f.text_field :stamp_duty %>
-  </div>
-
-  <div class="field">
-    <%= f.label :other_charges %>
-    <%= f.text_field :other_charges %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

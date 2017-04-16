@@ -86,6 +86,7 @@
     <%=f.error_span(:govt_charges) %>
   </div>
       <%= f.hidden_field :site_id, :class => 'form-control', :value => params[:site_id], :readonly => true %>
+      <%= f.hidden_field :booking_status, :value => 0 %>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
