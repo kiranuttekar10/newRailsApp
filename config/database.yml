@@ -48,5 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-    <<: *default
-    database: newRailsApp_production
+    adapter: postgresql
+    encoding: utf8
+    username: ncxdtschkwskct
+    password: b34e34634f3caf6831db1251a03cadeb511937cced3df4458c6754fe6352a059
+    host: ec2-54-235-153-124.compute-1.amazonaws.com
+    database: dce9d31fqaqhjc
